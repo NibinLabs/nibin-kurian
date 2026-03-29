@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'Nibin Kurian — Design System Architect & UI Engineer',
     description: 'Design System Architect specializing in token-driven architecture and scalable frontend systems.',

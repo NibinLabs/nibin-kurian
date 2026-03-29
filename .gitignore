@@ -15,8 +15,9 @@ out/
 *.pem
 npm-debug.log*
 
-# vercel
-.vercel
+# firebase
+.firebase
+firebase-debug.log
 
 # typescript
 *.tsbuildinfo

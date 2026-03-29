@@ -32,9 +32,9 @@ const GithubIcon = () => (
 
 
 const SOCIAL_LINKS = [
-    { label: 'Email', icon: <MailIcon />, href: 'mailto:nibin.lab.99@gmail.com' },
+    { label: 'Email', icon: <MailIcon />, href: 'mailto:nibinlabs@gmail.com' },
     { label: 'LinkedIn', icon: <LinkedinIcon />, href: 'https://linkedin.com/in/nibin-kurian' },
-    { label: 'GitHub', icon: <GithubIcon />, href: 'https://github.com/nibin-org' },
+    { label: 'GitHub', icon: <GithubIcon />, href: 'https://github.com/NibinLabs' },
 ];
 
 const CONTACT_METHODS = [
@@ -243,25 +243,25 @@ export default function Contact() {
         setErrors({});
         setFormStatus('sending');
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
+                    access_key: '7f41e245-175c-40d4-ac58-b44ebd1c86af',
                     name,
-                    method: activeMethod.label,
-                    contactValue,
-                    message,
+                    subject: name ? `Portfolio message from ${name}` : 'New portfolio message',
+                    message: `Preferred contact: ${activeMethod.label} - ${contactValue}\n\n${message}`,
                 }),
             });
 
-            let payload: { ok?: boolean } | null = null;
+            let payload: { success?: boolean } | null = null;
             try {
                 payload = await response.json();
             } catch {
                 payload = null;
             }
 
-            if (!response.ok || payload?.ok === false) {
+            if (!response.ok || payload?.success !== true) {
                 throw new Error('Failed to send message');
             }
 

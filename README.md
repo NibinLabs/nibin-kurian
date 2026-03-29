@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my work as a UI Engineer specialising in Design Systems, component libraries, and pixel-perfect Figma-to-code implementation.
 
-🌐 **Live:** [nibin-portfolio.vercel.app](https://nibin-portfolio.vercel.app)
+🌐 **Live:** [nibin--kurian.web.app](https://nibin--kurian.web.app)
 
 ---
 
@@ -11,7 +11,7 @@ Personal portfolio website showcasing my work as a UI Engineer specialising in D
 - **Next.js** — React framework for production
 - **SCSS** — Custom styling architecture
 - **GSAP** — Animations and scroll interactions
-- **Vercel** — Deployment
+- **Firebase Hosting** — Deployment
 
 ---
 
@@ -32,6 +32,15 @@ Personal portfolio website showcasing my work as a UI Engineer specialising in D
 - **Experience** — Career timeline
 - **Projects** — Featured work including TokVista
 - **Contact** — Get in touch
+
+---
+
+## Deploy
+
+```bash
+npm run build
+npx firebase deploy
+```
 
 ---
 
