@@ -1,0 +1,79 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.logoContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform $transition-normal;
+
+    &.sm {
+        width: 48px;
+        height: 48px;
+
+        @include md {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    &.md {
+        width: 64px;
+        height: 64px;
+    }
+
+    &.lg {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible; // Allow glow to bleed
+}
+
+.glowFilter {
+    filter: url(#logoGlowLight);
+
+    [data-theme='dark'] & {
+        filter: url(#logoGlowDark);
+    }
+}
+
+.monogram {
+    opacity: 0.95;
+
+    [data-theme='dark'] & {
+        opacity: 1;
+        filter: drop-shadow(0 0 8px var(--color-logo-glow));
+    }
+}
+
+.dot {
+    filter: drop-shadow(0 0 5px white);
+}
+
+.frame {
+    animation: pulseFrame 4s ease-in-out infinite;
+}
+
+@keyframes pulseFrame {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.01);
+    }
+}
+
+// Hover effects handled by parent container state (e.g. Navbar scroll state)
+:global(.scrolled) .logoContainer {
+    transform: scale(0.9);
+}
